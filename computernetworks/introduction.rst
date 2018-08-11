@@ -91,12 +91,18 @@ We will cover each in detail over the course.
 Links to Read
 -------------
 
+.. todo::
+	Name these links
+
 * https://www.youtube.com/watch?v=zyL1Fud1Z1c
 * https://www.youtube.com/watch?v=Pje0l5r7_lk
 * https://www.youtube.com/watch?v=PpsEaqJV_A0 - Ultra Basic Video
 * https://www.youtube.com/watch?v=VlKks__ZhI0 - Ultra Basic Video
 
 The first two probably confused you with 5 Layer Internet Stack vs 7 Layer OSI Reference Model. In that case, this might help :
+
+.. todo::
+	Name these links
 
 * https://en.wikipedia.org/wiki/OSI_model#Comparison_with_TCP.2FIP_model
 * https://en.wikipedia.org/wiki/Internet_protocol_suite#Comparison_of_TCP.2FIP_and_OSI_layering

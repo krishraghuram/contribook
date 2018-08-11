@@ -8,6 +8,9 @@ Client-Server Architecture
 
 Links :
 
+.. todo::
+	Name these links
+
 1. https://www.youtube.com/watch?v=SwLdKeC8scE
 2. https://www.youtube.com/watch?v=L5BlpPU_muY
 
@@ -86,6 +89,9 @@ Google, Youtube, Facebook - are all Webpages which are served through HTTP.
 Links
 ^^^^^
 
+.. todo::
+	Name these links
+
 1. https://www.youtube.com/watch?v=SzSXHv8RKdM
 2. https://www.youtube.com/watch?v=po3zYOe00O4
 3. https://www.youtube.com/watch?v=fOikWrpPHp0
@@ -142,6 +148,9 @@ Cookies is what allows for Stateful HTTP.
 
 You can disable cookies in your browser. This increases your security, but you will have to login into gmail and facebook every single time you open them.
 
+.. todo::
+	Decide about the "Nitpicks"
+
 .. Nitpicks
 .. ^^^^^^^^
 
@@ -162,6 +171,9 @@ Web-Cache/Proxy-Server
 
 Links :
 
+.. todo::
+	Name these links
+
 1. https://www.youtube.com/watch?v=o2KMk_TyC8E - Must See
 2. https://www.youtube.com/watch?v=qU0PVSJCKcs - Must See
 
@@ -174,6 +186,9 @@ HTTP - sends data as plain text
 
 Not a good way to send stuff like Passwords, Credit Card Info etc.
 
+.. todo::
+	Name these links
+
 Link - http://robertheaton.com/2014/03/27/how-does-https-actually-work/
 
 Above link is not a short and sweet video like others. That’s because videos do not contain detailed information. At least, not the ones under 10 minutes. So, it’s usually better to read up content from books, webpages, blogs, wikipedia pages, man pages of commands etc.
@@ -182,6 +197,12 @@ Above link is not a short and sweet video like others. That’s because videos d
 
 SSH
 ---
+
+.. todo::
+	Expand SSH
+
+.. todo::
+	Name these links
 
 Link - https://www.youtube.com/watch?v=mF6J-VQHPxA
 
@@ -228,6 +249,9 @@ The below links explains DNS in a very layman way, without digging deep into how
 Note that they might be using slightly simplified terminology to make the explanation shorter.
 
 Links
+
+.. todo::
+	Name these links
 
 1. https://www.youtube.com/watch?v=Rck3BALhI5c
 2. https://www.youtube.com/watch?v=72snZctFFtA
@@ -298,6 +322,9 @@ Read more at,
 1. `Wikipedia Page of NTP <https://en.wikipedia.org/wiki/Network_Time_Protocol>`_
 2. `NTP Project Page <http://www.ntp.org/ntpfaq/NTP-s-def.htm>`_
 
+.. todo::
+	Name these links
+
 .. note::
 	Want to implement your own Stratum 0 NTP server with Raspberry Pi?
 
@@ -307,6 +334,9 @@ Read more at,
 
 DHCP
 ----
+
+.. todo::
+	Expand DHCP
 
 Most of us never set Static IP Addresses. We connect to a wifi network, and everything just works. 
 

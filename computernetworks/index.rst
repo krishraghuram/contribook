@@ -14,5 +14,15 @@ Welcome. This is a microcourse on computer networks.
    physical
    tools
    examples
-   blogs
-   
+   curations
+
+.. todo::
+   * transport layer
+   * network layer
+   * link layer
+   * physical layer
+   * tools
+   * examples
+   * curations
+
+.. todolist::

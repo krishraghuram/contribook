@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Application Layer &mdash; Contribook  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Contribook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Computer Networks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Application Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client-server-architecture">Client-Server Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basics-of-network-addressing">Basics of Network Addressing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#socket">Socket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relation-between-sockets-and-ports">Relation between Sockets and Ports</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#transport-layer-protocols-available-to-applications">Transport Layer Protocols available to Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http">HTTP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#under-the-hood">Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-points">Key Points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#side-joke">Side Joke</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cookies">Cookies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Contribook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Computer Networks</a> &raquo;</li>
+        
+      <li>Application Layer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/computernetworks/application.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application-layer">
+<h1>Application Layer<a class="headerlink" href="#application-layer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="client-server-architecture">
+<h2>Client-Server Architecture<a class="headerlink" href="#client-server-architecture" title="Permalink to this headline">¶</a></h2>
+<p>Links :</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://www.youtube.com/watch?v=SwLdKeC8scE">https://www.youtube.com/watch?v=SwLdKeC8scE</a></li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=L5BlpPU_muY">https://www.youtube.com/watch?v=L5BlpPU_muY</a></li>
+</ol>
+<p>Some things to note :</p>
+<ul class="simple">
+<li>Client initiates the connection</li>
+<li>Server is always waiting for clients</li>
+<li>Server responds to Client’s requests</li>
+<li>This is called the Request-Response cycle</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="basics-of-network-addressing">
+<h2>Basics of Network Addressing<a class="headerlink" href="#basics-of-network-addressing" title="Permalink to this headline">¶</a></h2>
+<p>IP Address - is a 32 bit number used to uniquely identify a host system(computer).</p>
+<p>Port - is a number that uniquely identifies a process on a host.</p>
+<p>Together, a given IP and Port uniquely identify a application running on a host in a
+network.</p>
+<p>We will discuss IP Addresses and Ports in greater detail when we get to Network
+Layer and Transport Layer.</p>
+<div class="section" id="socket">
+<h3>Socket<a class="headerlink" href="#socket" title="Permalink to this headline">¶</a></h3>
+<p>The application layer work is done by the code in the application.</p>
+<p>The transport layer work is done by services running on the Operating System.</p>
+<p>Socket is a software entity that acts as the interface between Application and the Operating System. Therefore, Socket is like a doorway between Application and Operating System - passing packets from Application to OS and vice-versa.</p>
+<p>Equivalently, we can call Socket as the interface between Application Layer and Transport Layer.</p>
+</div>
+<div class="section" id="relation-between-sockets-and-ports">
+<h3>Relation between Sockets and Ports<a class="headerlink" href="#relation-between-sockets-and-ports" title="Permalink to this headline">¶</a></h3>
+<p>Ports and Sockets are very closely related.</p>
+<p>Ports are used to uniquely identify a process.</p>
+<p>A Socket is the software interface between Application Layer and Transport Layer. An application layer process interacts with the transport layer processes using a socket. During the creation of this socket, a port must be specified, so that the application can be uniquely identified later.</p>
+<p>For all intents and purposes, you can consider Ports and Sockets to be equivalent.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="transport-layer-protocols-available-to-applications">
+<h2>Transport Layer Protocols available to Applications<a class="headerlink" href="#transport-layer-protocols-available-to-applications" title="Permalink to this headline">¶</a></h2>
+<p>The two most popular Transport Layer protocols available to applications are,</p>
+<ol class="arabic simple">
+<li>TCP - Transmission Control Protocol</li>
+<li>UDP - User Datagram Protocol</li>
+</ol>
+<p>The application developer is free to choose whichever protocol he wants.</p>
+<p>His choice will depend on the differences between the services that TCP and
+UDP offer. We will look at this in detail in Transport Layer.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="http">
+<h2>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>HTTP - Hyper Text Transfer Protocol</p>
+<p>HTTP began with the Tim Berners-Lee and World Wide Web.</p>
+<p>HTTP is stateless</p>
+<p>Google, Youtube, Facebook - are all Webpages which are served through HTTP.</p>
+</div>
+<div class="section" id="under-the-hood">
+<h3>Under the Hood<a class="headerlink" href="#under-the-hood" title="Permalink to this headline">¶</a></h3>
+<p>Links :</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://www.youtube.com/watch?v=SzSXHv8RKdM">https://www.youtube.com/watch?v=SzSXHv8RKdM</a></li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=po3zYOe00O4">https://www.youtube.com/watch?v=po3zYOe00O4</a></li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=fOikWrpPHp0">https://www.youtube.com/watch?v=fOikWrpPHp0</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol</a></li>
+<li><a class="reference external" href="https://medium.com/&#64;hanilim/http-codes-as-valentines-day-comics-8c03c805faa0">https://medium.com/&#64;hanilim/http-codes-as-valentines-day-comics-8c03c805faa0</a> - HTTP codes as Valentine’s Day comics</li>
+</ol>
+</div>
+<div class="section" id="key-points">
+<h3>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Works using Client - Server model</p>
+</li>
+<li><p class="first">Thus, works through Request - Response cycles</p>
+</li>
+<li><p class="first">Based on TCP/IP</p>
+</li>
+<li><p class="first">Default server port - TCP Port 80 (Don’t have to memorise)</p>
+</li>
+<li><p class="first">Stateless - Server does not maintain client’s history.</p>
+</li>
+<li><p class="first">Request Methods and Response/Status Codes</p>
+<blockquote>
+<div><ul class="simple">
+<li>Request Methods define the action that the client wants to perform. Eg : GET, POST, HEAD etc.</li>
+<li>Status code is a short 3-digit code which tells the result of the request. Eg : 200 - OK, 404 - Not Found, 403 - Forbidden, 407 - Proxy Authentication Required.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="side-joke">
+<h3>Side Joke<a class="headerlink" href="#side-joke" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/httpresponsecodejoke.jpg"><img alt="../_images/httpresponsecodejoke.jpg" class="align-center" src="../_images/httpresponsecodejoke.jpg" style="width: 374.40000000000003px; height: 665.6px;" /></a>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="cookies">
+<h2>Cookies<a class="headerlink" href="#cookies" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Raghuram Krishnaswami.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

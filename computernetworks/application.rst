@@ -250,13 +250,34 @@ Cookies can be of two types:
 Web-Cache/Proxy-Server
 ----------------------
 
-Links :
+What is caching?
+^^^^^^^^^^^^^^^^
 
-.. todo::
-	Name these links
+Caching is the process of saving something at a closer location on the
+first read, so that subsequent reads are faster.
 
-1. https://www.youtube.com/watch?v=o2KMk_TyC8E - Must See
-2. https://www.youtube.com/watch?v=qU0PVSJCKcs - Must See
+It is not limited to computer networks, and is used in other places too.
+
+* For example, it is used in computers, where RAM is a cache
+  for theHard-Disk/SSD. Processors have their own cache,
+  which cache the RAM.
+* Redis, MemcacheD etc. can cache things like Database requests.
+* Lastly, we have Web-Caches which cache HTTP requests. Proxy Servers
+  are one way to implement a Web-Cache.
+
+Links
+^^^^^
+
+Both links are extremely good.
+
+* `What is a Proxy Server?`_
+* `What is caching?`_
+
+.. _`What is a Proxy Server?`:
+	https://www.youtube.com/watch?v=qU0PVSJCKcs
+
+.. _`What is caching?`:
+	https://www.youtube.com/watch?v=o2KMk_TyC8E
 
 ########################################################################
 

@@ -119,8 +119,8 @@ Links to Read
 * Super Basic Video - `Techquickie - What is TCP/IP?`_
 
 .. note::
-	Above video jumbles up network layer and link layer - just ignore
-	that.
+	Above video jumbles up network layer and link layer a little bit
+	 - just ignore that.
 
 * Super Basic (and funny) Video - 
   `thenewboston - what is a protocol?`_

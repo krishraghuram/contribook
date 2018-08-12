@@ -6,74 +6,101 @@ Application Layer
 Client-Server Architecture
 --------------------------
 
-Links :
+Links
+^^^^^
+
+* `2 minute video on client-server model`_
+* `6 minute video, that explains some parts better`_
+
+.. note::
+	The second video is kind of vague about "virtual servers"
+	- so please ignore that.
+
+Thought client-server model is the most widely used, it is not the only
+ one. There are other models too. Specifically,
 
 .. todo::
-	Name these links
+	Expand Peer-to-Peer and Publisher-Subscriber models.
 
-1. https://www.youtube.com/watch?v=SwLdKeC8scE
-2. https://www.youtube.com/watch?v=L5BlpPU_muY
+* Peer-to-Peer model
+* Publisher-Subscriber model
 
-Some things to note :
+.. _`2 minute video on client-server model`:
+	https://www.youtube.com/watch?v=SwLdKeC8scE	
+
+.. _`6 minute video, that explains some parts better`:
+	https://www.youtube.com/watch?v=L5BlpPU_muY
+
+Key Points
+^^^^^^^^^^
 
 * Client initiates the connection
 * Server is always waiting for clients
 * Server responds to Client’s requests
 * This is called the Request-Response cycle
 
-###############################################################################
+########################################################################
 
 Basics of Network Addressing
 ----------------------------
 
-IP Address - is a 32 bit number used to uniquely identify a host system(computer).
+IP Address - is a 32 bit number used to uniquely identify a host
+system(computer).
 
 Port - is a number that uniquely identifies a process on a host.
 
-Together, a given IP and Port uniquely identify a application running on a host in a
-network.
+Together, a given IP and Port uniquely identify a application running
+on a host in a network.
 
-We will discuss IP Addresses and Ports in greater detail when we get to Network
-Layer and Transport Layer. 
+We will discuss IP Addresses and Ports in greater detail when we get to
+Network Layer and Transport Layer.
 
-Socket
-^^^^^^
+########################################################################
 
-The application layer work is done by the code in the application.
+Sockets and Ports
+-----------------
 
-The transport layer work is done by services running on the Operating System.
+The application layer work is done by the code in the application. 
+The transport layer work is done by services running on the Operating
+System.
 
-Socket is a software entity that acts as the interface between Application and the Operating System. Therefore, Socket is like a doorway between Application and Operating System - passing packets from Application to OS and vice-versa.
+Socket is a 'software entity' that acts as the interface between
+Application and the Operating System. Therefore, Socket is like a
+doorway between Application and Operating System - passing packets from
+Application to OS and vice-versa.
 
-Equivalently, we can call Socket as the interface between Application Layer and Transport Layer.
+Equivalently, we can call Socket as the interface between Application
+Layer and Transport Layer.
 
-Relation between Sockets and Ports
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Ports and Sockets are very closely related.
-
+Ports and Sockets are very closely related. 
 Ports are used to uniquely identify a process.
 
-A Socket is the software interface between Application Layer and Transport Layer. An application layer process interacts with the transport layer processes using a socket. During the creation of this socket, a port must be specified, so that the application can be uniquely identified later.
+A Socket is the software interface between Application Layer and
+Transport Layer. An application layer process interacts with the
+transport layer processes using a socket. During the creation of this
+socket, a port must be specified, so that the application can be
+uniquely identified later.
 
-For all intents and purposes, you can consider Ports and Sockets to be equivalent. 
+For all intents and purposes, you can consider Ports and Sockets to be
+the same.
 
-###############################################################################
+########################################################################
 
-Transport Layer Protocols available to Applications
----------------------------------------------------
+Transport Layer Protocols available to Application Layer
+--------------------------------------------------------
 
-The two most popular Transport Layer protocols available to applications are,
+The two most popular Transport Layer protocols available to applications
+are,
 
 1. TCP - Transmission Control Protocol
 2. UDP - User Datagram Protocol
 
-The application developer is free to choose whichever protocol he wants. 
+Application Layer protocols are free to choose either.
 
-His choice will depend on the differences between the services that TCP and
-UDP offer. We will look at this in detail in Transport Layer.
+The choice depends on the differences between the services that TCP
+and UDP offer. We will look at this in detail in Transport Layer.
 
-###############################################################################
+########################################################################
 
 HTTP
 ----
@@ -84,7 +111,7 @@ HTTP began with the Tim Berners-Lee and World Wide Web.
 
 HTTP is stateless
 
-Google, Youtube, Facebook - are all Webpages which are served through HTTP.
+Google, Youtube, Facebook - are all Websites served through HTTP.
 
 Links
 ^^^^^
@@ -118,7 +145,7 @@ Side Joke
    :scale: 65 %
    :align: center
 
-###############################################################################
+########################################################################
 
 Cookies
 -------
@@ -164,7 +191,7 @@ You can disable cookies in your browser. This increases your security, but you w
    
    Here, cookies are just unique identifiers, and the actual info about user is stored on the server. The server looks up this info using the cookie aka. unique identifier.
 
-###############################################################################
+########################################################################
 
 Web-Cache/Proxy-Server
 ----------------------
@@ -177,7 +204,7 @@ Links :
 1. https://www.youtube.com/watch?v=o2KMk_TyC8E - Must See
 2. https://www.youtube.com/watch?v=qU0PVSJCKcs - Must See
 
-###############################################################################
+########################################################################
 
 HTTPS
 -----
@@ -193,7 +220,7 @@ Link - http://robertheaton.com/2014/03/27/how-does-https-actually-work/
 
 Above link is not a short and sweet video like others. That’s because videos do not contain detailed information. At least, not the ones under 10 minutes. So, it’s usually better to read up content from books, webpages, blogs, wikipedia pages, man pages of commands etc.
 
-###############################################################################
+########################################################################
 
 SSH
 ---
@@ -237,7 +264,7 @@ rsync is an alternative to scp, and has some really cool options.
 .. note::
 	I use rsync to backup files from laptop to hard-disk, even though that does not use the network, because of the above features.
 
-###############################################################################
+########################################################################
 
 DNS
 ---
@@ -297,7 +324,7 @@ If you are interested in the inner workings, you can find more detailed informat
 * Kurose and Ross - Section 2.5
 * Wikipedia Page of DNS
 
-###############################################################################
+########################################################################
 
 NTP
 ---
@@ -330,7 +357,7 @@ Read more at,
 
 	http://rdlazaro.info/compu-Raspberry_Pi-RPi-stratum0.html
 
-###############################################################################
+########################################################################
 
 DHCP
 ----

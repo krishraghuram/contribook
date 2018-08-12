@@ -116,27 +116,39 @@ Google, Youtube, Facebook - are all Websites served through HTTP.
 Links
 ^^^^^
 
-.. todo::
-	Name these links
+* `What is HTTP?`_
+	
+	Personally, I'm not a fan of the 'kitchen' or the 'coin' examples,
+	but whatever works for you man.
 
-1. https://www.youtube.com/watch?v=SzSXHv8RKdM
-2. https://www.youtube.com/watch?v=po3zYOe00O4
-3. https://www.youtube.com/watch?v=fOikWrpPHp0
-4. https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
-5. https://medium.com/@hanilim/http-codes-as-valentines-day-comics-8c03c805faa0 - HTTP response codes as Valentine’s Day comics
+.. _`What is HTTP?`:
+	https://www.youtube.com/watch?v=SzSXHv8RKdM
+
 
 Key Points
 ^^^^^^^^^^
 
-1. Works using Client - Server model
-2. Thus, works through Request - Response cycles
-3. Based on TCP/IP
-4. Default server port - TCP Port 80 (Don’t have to memorise)
-5. Stateless - Server does not maintain client’s history.
-6. Request Methods and Response/Status Codes
+* Works using Client - Server model, and thus,
+  through Request - Response cycles
+* Based on TCP/IP
+* Default server port - TCP Port 80 (Don’t have to memorise)
+* Stateless - Server forgets about client after the response.
+* Request Methods and Response/Status Codes
 
-	* Request Methods define the action that the client wants to perform. Eg : GET, POST, HEAD etc.
-	* Status code is a short 3-digit code which tells the result of the request. Eg : 200 - OK, 404 - Not Found, 403 - Forbidden, 407 - Proxy Authentication Required.
+	* Request Methods define the action that the client wants to
+	  perform. For example,
+
+		* GET
+		* POST
+		* HEAD
+
+	* Status code is a short 3-digit code which tells the result of the
+	  request. For example,
+
+		* 200 - OK
+		* 404 - Not Found
+		* 403 - Forbidden
+		* 407 - Proxy Authentication Required
 
 Side Joke
 ^^^^^^^^^
@@ -145,6 +157,26 @@ Side Joke
    :scale: 65 %
    :align: center
 
+Extras
+^^^^^^
+
+.. todo::
+	Low Priority - Name these links.
+
+In no particular order,
+
+* https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+* HTTP Response Codes as Valentine’s Day Comics - https://medium.com/@hanilim/http-codes-as-valentines-day-comics-8c03c805faa0
+* http://www.steves-internet-guide.com/http-basics/
+* http://www.ntu.edu.sg/home/ehchua/programming/webprogramming/http_basics.html
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP
+* https://medium.freecodecamp.org/restful-services-part-i-http-in-a-nutshell-aab3bfedd131
+* How the Web Works Series :
+
+	* https://medium.freecodecamp.org/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c
+	* https://medium.freecodecamp.org/how-the-web-works-part-ii-client-server-model-the-structure-of-a-web-application-735b4b6d76e3
+	* https://medium.freecodecamp.org/how-the-web-works-part-iii-http-rest-e61bc50fa0a
+
 ########################################################################
 
 Cookies
@@ -152,9 +184,12 @@ Cookies
 
 HTTP is stateless. 
 
-The server forgets about the client after each request-response cycle. When the client sends another request, the server does not know about the previous request-response.
+The server forgets about the client after each request-response cycle.
+When the client sends another request,
+the server does not know about the previous request-response.
 
-So... http servers are a bit like `10 second Tom <https://www.youtube.com/watch?v=6kbY9rGTgQo>`_.
+So... http servers are a bit like
+`10 second Tom <https://www.youtube.com/watch?v=6kbY9rGTgQo>`_.
 
 Then how does google and facebook “remember” that we are logged in?
 
@@ -163,33 +198,52 @@ The answer is cookies.
 Links
 ^^^^^
 
-1. https://www.youtube.com/watch?v=I01XMRo2ESg - Really Good
-2. https://www.youtube.com/watch?v=64veb6tKTm0 - Layman Explanation
+* `Wonderful Video - What is a cookie?`_
+
+* `Cookies explained using Starbucks Analogy`_
+
+.. _`Wonderful Video - What is a cookie?`:
+	https://www.youtube.com/watch?v=I01XMRo2ESg
+
+.. _`Cookies explained using Starbucks Analogy`:
+	https://www.youtube.com/watch?v=64veb6tKTm0
 
 Key Points
 ^^^^^^^^^^
 
-Cookies are identifiers that are given by web-servers when you visit them for the first time. On subsequent visits to the same website, your browser sends the cookies along with the http request. This allows the website to recollect who you are, what did you do last time etc.
+Cookies are identifiers that are given by web-servers when you visit
+them for the first time. On subsequent visits to the same website, your
+browser sends the cookies along with the http request. This allows the
+website to recollect who you are, what did you do last time etc.
 
 Cookies is what allows for Stateful HTTP.
 
-You can disable cookies in your browser. This increases your security, but you will have to login into gmail and facebook every single time you open them.
+You can disable cookies in your browser. This increases your security,
+but you will have to login into gmail and facebook every single time you
+open them. Typically, I take the middle ground of just disabling
+"third-party" cookies.
 
-.. todo::
-	Decide about the "Nitpicks"
+Extra - Cookies and Sessions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. Nitpicks
-.. ^^^^^^^^
+Cookies can be of two types:
 
-.. Cookies can be of two types:
-
-.. 1. Pure Client Side Cookies
+1. Pure Client Side Cookies
    
-   Here, all the info that server needs about user, is stored on the cookie itself and sent to the user.
+   Here, all the info that server needs about user, is stored on the
+   cookie itself and sent to the user.
 
-.. 2. Cookies + Server Side Sessions
+   Advantage - Server doesn't have to perform a 'look-up' each time.
+   Disadvantage - Security loopholes, Limited size etc.
+
+2. Cookies + Server Side Sessions
    
-   Here, cookies are just unique identifiers, and the actual info about user is stored on the server. The server looks up this info using the cookie aka. unique identifier.
+   Here, cookies are used just as unique identifiers, and the actual
+   info about user is stored on the server. The server looks up this
+   info using the cookie aka. unique identifier.
+
+   Advantage - Unlimited Size.
+   Disadvantage - Server has to perform a look-up on each request.
 
 ########################################################################
 

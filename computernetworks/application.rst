@@ -160,22 +160,47 @@ Side Joke
 Extras
 ^^^^^^
 
-.. todo::
-	Low Priority - Name these links.
-
 In no particular order,
 
-* https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
-* HTTP Response Codes as Valentine’s Day Comics - https://medium.com/@hanilim/http-codes-as-valentines-day-comics-8c03c805faa0
-* http://www.steves-internet-guide.com/http-basics/
-* http://www.ntu.edu.sg/home/ehchua/programming/webprogramming/http_basics.html
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP
-* https://medium.freecodecamp.org/restful-services-part-i-http-in-a-nutshell-aab3bfedd131
-* How the Web Works Series :
+* `Wikipedia - HTTP`_
+* `HTTP Response Codes as Valentine’s Day Comics`_
+* `Steve's Internet Guide - HTTP`_
+* `Slides from NTU`_
+* `Mozilla Developers aka MDN - Collection of Articles on HTTP`_
+* 'How the Web Works' - Series of posts on Medium
 
-	* https://medium.freecodecamp.org/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c
-	* https://medium.freecodecamp.org/how-the-web-works-part-ii-client-server-model-the-structure-of-a-web-application-735b4b6d76e3
-	* https://medium.freecodecamp.org/how-the-web-works-part-iii-http-rest-e61bc50fa0a
+	* `How the Web Works - 1`_
+	* `How the Web Works - 2`_
+	* `How the Web Works - 3`_
+
+.. _`Wikipedia - HTTP`:
+	https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+
+.. _`HTTP Response Codes as Valentine’s Day Comics`:
+	https://medium.com/@hanilim/http-codes-as-valentines-day-comics-
+	8c03c805faa0
+
+.. _`Steve's Internet Guide - HTTP`:
+	http://www.steves-internet-guide.com/http-basics/
+
+.. _`Slides from NTU`:
+	http://www.ntu.edu.sg/home/ehchua/programming/webprogramming/
+	http_basics.html
+
+.. _`Mozilla Developers aka MDN - Collection of Articles on HTTP`:
+	https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP
+
+.. _`How the Web Works - 1`:
+	https://medium.freecodecamp.org/how-the-web-works-a-primer-for-
+	newcomers-to-web-development-or-anyone-really-b4584e63585c
+
+.. _`How the Web Works - 2`:
+	https://medium.freecodecamp.org/how-the-web-works-part-ii-client-
+	server-model-the-structure-of-a-web-application-735b4b6d76e3
+
+.. _`How the Web Works - 3`:
+	https://medium.freecodecamp.org/how-the-web-works-part-iii-http-
+	rest-e61bc50fa0a
 
 ########################################################################
 

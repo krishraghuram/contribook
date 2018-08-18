@@ -313,12 +313,19 @@ HTTP - sends data as plain text
 
 Not a good way to send stuff like Passwords, Credit Card Info etc.
 
-.. todo::
-	Name these links
 
-Link - http://robertheaton.com/2014/03/27/how-does-https-actually-work/
+Link
+^^^^
 
-Above link is not a short and sweet video like others. That’s because videos do not contain detailed information. At least, not the ones under 10 minutes. So, it’s usually better to read up content from books, webpages, blogs, wikipedia pages, man pages of commands etc.
+* `Robert Heaton - How does HTTPS actually work?`_
+
+.. _`Robert Heaton - How does HTTPS actually work?`:
+	http://robertheaton.com/2014/03/27/how-does-https-actually-work/
+
+Above link is not a short and sweet video like others. That’s because
+videos do not contain detailed information. At least, not the ones
+under 10 minutes. So, it’s usually better to read up content from
+books, webpages, blogs, wikipedia pages, man pages of commands etc.
 
 ########################################################################
 
@@ -326,19 +333,27 @@ SSH
 ---
 
 .. todo::
-	Expand SSH
+	Improve SSH Notes
 
-.. todo::
-	Name these links
+Link
+^^^^
 
-Link - https://www.youtube.com/watch?v=mF6J-VQHPxA
+* `Intro to SSH`_
 
-The thing is, SSH is extremely useful, but most people don't need the "inner workings" of it.
+.. _`Intro to SSH`:
+	https://www.youtube.com/watch?v=mF6J-VQHPxA
+
+SSH is extremely useful
+
+The thing is, SSH is extremely useful,
+but most people don't need the "inner workings" of it.
 
 To work with SSH practically, you need a SSH server and a SSH client.
 
-Most Linux distros come with ssh command line client. You can test this on terminal by typing "which ssh".
-For windows, you have Putty - but I do not recommend this, as working with SSH keys is a pain on Putty.
+Most Linux distros come with ssh command line client.
+You can test this on terminal by typing "which ssh".
+For windows, you have Putty - but I do not recommend this,
+as working with SSH keys is a pain on Putty.
 
 For the server, goto some popular cloud provider, 
 be it Digitalocean, GCP, AWS or Azure, and get a Virtual Machine.
@@ -351,85 +366,125 @@ Search and Learn :
 3. Disable Password Based Authentication
 4. Use SCP or RSYNC to transfer files
 
-About RSYNC
-^^^^^^^^^^^
+RSYNC
+^^^^^
 
 rsync is an alternative to scp, and has some really cool options.
 
 1. Copy only files that have changed.
-2. Copy, but preserve stuff like modification times, owners, permissions etc.
-3. Seamlessly compress and decompress files during the copy, to reduce network usage.
+2. Copy, but preserve stuff like modification times, owners,
+   permissions etc.
+3. Seamlessly compress and decompress files during the copy, to reduce
+   network usage.
 4. Delete files in destination, that are not present in source.
 
 .. note::
-	I use rsync to backup files from laptop to hard-disk, even though that does not use the network, because of the above features.
+	I often use rsync to backup files to external hard disk.
+	The command I usually run is,
+		``rsync -azP /home/raghuram /run/media/hard-disk/``
+	Note that the command does not have any remote ip's.
+	In fact, it does not even use the network.
+	I use it over, rather than simple ``cp``, because of the its
+	features.
 
 ########################################################################
 
 DNS
 ---
 
-DNS is probably the most important protocol for hoomans to use internet.
+DNS is probably the most important protocol for humans to use internet.
 
-The below links explains DNS in a very layman way, without digging deep into how each query happens.
+The below links explains DNS in a very layman way,
+without digging deep into how each query happens.
 
-Note that they might be using slightly simplified terminology to make the explanation shorter.
+Note that they might be using slightly simplified terminology to make
+the explanation shorter.
 
 Links
+^^^^^
 
-.. todo::
-	Name these links
+* `DNS Made Easy Videos - DNS Explained`_
+* `Techquickie - DNS as Fast As Possible`_
 
-1. https://www.youtube.com/watch?v=Rck3BALhI5c
-2. https://www.youtube.com/watch?v=72snZctFFtA
+.. _`DNS Made Easy Videos - DNS Explained`:
+	https://www.youtube.com/watch?v=72snZctFFtA
 
-If you want to dig in into the depth of DNS, read the book :D
+.. _`Techquickie - DNS as Fast As Possible`:
+	https://www.youtube.com/watch?v=Rck3BALhI5c
+
+Some of you probably wanted more in-depth info.
+Don't worry, I have you covered.
+
+* Kurose and Ross - Section 2.5
+* `Wikipedia Page of DNS`_
+
+.. _`Wikipedia Page of DNS`:
+	https://en.wikipedia.org/wiki/Domain_Name_System
 
 Key Points
 ^^^^^^^^^^
 
-Unless you are the network administrator for a large organization(like our college), you don’t need to bother with the inner workings of DNS too much. 
+* DNS is a application level protocol. It uses UDP for its transport
+  layer functionality.
 
-What you need to bother with are,
+* Computers need IP addresses to find things on internet. 
+  Humans like to use names. DNS is the complex system that translates
+  names to addresses. 
 
-* DNS is a application level protocol. It uses UDP for its transport layer functionality.
+   If DNS wasn’t envisoned, we would all be maintaining a
+   small notebook, much like the phone directory of the landline days. 
 
-* Computers need IP addresses to find things on internet. Humans like to use names. DNS is the complex system that translates names to addresses. 
-
-   If DNS wasn’t `envisioned <https://en.wikipedia.org/wiki/Paul_Mockapetris>`_, we would all be maintaining a small notebook, much like the phone directory of the landline days. 
-
-* DNS is distributed - the translation table is not stored at a single location.
+* DNS is distributed - the translation table is not stored at any
+  single location.
 
 * DNS is a hierarchical protocol.
 
-   * For example, when I want to go to google.com, my browser asks IITG’s DNS server 202.141.81.2. 
-   * If the server has the IP for google.com in its cache, it will give it to me.
-   * But if it does not, it will ask a higher level DNS server for the IP.
-   * This process can repeat until we reach the Root DNS servers, and finally find the IP.
+   * For example, when I want to go to google.com, my browser asks
+     IITG’s DNS server 202.141.81.2. 
+   * If the server has the IP for google.com in its cache, it will give
+     it to me.
+   * But if it does not, it will ask a higher level DNS server for
+     the IP.
+   * This process can repeat until we reach the Root DNS servers,
+     and finally find the IP.
 
 * DNS replies are cached.
    
-   * The first time you load google.com, you possibly started a domino chain of requests up to the internet’s root dns servers.
-   * Imagine the same thing happening on every refresh - the root dns servers will not be able to handle the number of requests from the billions of devices connected to the internet.
-   * To reduce load on higher level servers, and to reduce network load in general, DNS replies are cached. This means that everyone in the domino chain stores the ip of google.com for a while, including your browser.
+   * The first time you load google.com, you possibly started a
+     domino chain of requests up to the internet’s root dns servers.
+   * Imagine the same thing happening on every refresh - the root dns
+     servers will not be able to handle the number of requests from the
+     billions of devices connected to the internet.
+   * To reduce load on higher level servers, and to reduce network load
+     in general, DNS replies are cached. This means that everyone in
+     the domino chain stores the ip of google.com for a while,
+     including your browser.
 
 * Domain Names are purchased through registrars. Read more at,
 
-	* `Beginners Guide to Domain Names <https://www.icann.org/en/system/files/files/domain-names-beginners-guide-06dec10-en.pdf>`_
-	* `Beginners Guides to various activities of ICANN and IANA <https://www.icann.org/resources/pages/beginners-guides-2012-03-06-en>`_
-	* `Main website of ICANN <https://www.icann.org/>`_
+	* `Beginners Guide to Domain Names`_
+	* `Beginners Guides to various activities of ICANN and IANA`_
+	* `Main website of ICANN`_
 
-If you are interested in the inner workings, you can find more detailed information in,
+.. _`Beginners Guide to Domain Names`:
+	https://www.icann.org/en/system/files/files/domain-names-
+	beginners-guide-06dec10-en.pdf
 
-* Kurose and Ross - Section 2.5
-* Wikipedia Page of DNS
+.. _`Beginners Guides to various activities of ICANN and IANA`:
+	https://www.icann.org/resources/pages/beginners-guides-2012-03-06-en
+
+.. _`Main website of ICANN`:
+	https://www.icann.org/
 
 ########################################################################
 
 NTP
 ---
 
-NTP is not a very popular protocol, and most courses on networks wouldn’t bother with it. But I think that it deserves at least one slide, considering we have talked so much about DNS.
+NTP is not very popular,
+and most courses on networks wouldn’t mention it.
+But I think that it deserves at least one slide,
+considering we have talked so much about DNS.
 
 Key Points
 

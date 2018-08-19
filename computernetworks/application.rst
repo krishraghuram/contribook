@@ -488,24 +488,34 @@ considering we have talked so much about DNS.
 
 Key Points
 
-1. NTP (Network Time Protocol) is what allows time to be synced across the world.
+1. NTP, or Network Time Protocol,
+   is what allows humans to maintain time across the globe.
 2. Like DNS, NTP is also hierarchical.
 
-	* The root time servers (called Stratum 0 servers) are the Atomic Clocks that use Caesium for measuring time - as defined in the SI unit of second. Isn't that cool?
+	* The root time servers (called Stratum 0 servers) are the
+	  Atomic Clocks that use Caesium for measuring time -
+	  as defined in the SI unit of second. Isn't that cool?
 
 .. figure:: ../_images/ntp.jpg
    :scale: 40 %
    :align: center
    
-   A Stratum 0 NTP server of US Naval Observatory, located in Colorado. Read more `here <https://en.wikipedia.org/wiki/File:Usno-amc.jpg>`_
+   A Stratum 0 NTP server of US Naval Observatory, located in Colorado.
+   Read more `here <https://en.wikipedia.org/wiki/File:Usno-amc.jpg>`_
 
 Read more at,
 
-1. `Wikipedia Page of NTP <https://en.wikipedia.org/wiki/Network_Time_Protocol>`_
-2. `NTP Project Page <http://www.ntp.org/ntpfaq/NTP-s-def.htm>`_
+Links
+^^^^^
 
-.. todo::
-	Name these links
+* `Wikipedia Page of NTP`_
+* `NTP Project Page`_
+
+.. _`Wikipedia Page of NTP`:
+	https://en.wikipedia.org/wiki/Network_Time_Protocol
+
+.. _`NTP Project Page`:
+	http://www.ntp.org/ntpfaq/NTP-s-def.htm
 
 .. note::
 	Want to implement your own Stratum 0 NTP server with Raspberry Pi?
@@ -520,12 +530,12 @@ DHCP
 .. todo::
 	Expand DHCP
 
-Most of us never set Static IP Addresses. We connect to a wifi network, and everything just works. 
+Most of us never set Static IP Addresses. We connect to a wifi network,
+and everything just works. 
 
 All thanks to DHCP - Dynamic Host Configuration Protocol.
 
-Unless you are going to be setting up your own DHCP server - you only need a rudimentary understanding of DHCP.
-
-We have decided to take a leaf from the book of mathematicians and leave DHCP as an exercise to the reader.
+We have decided to take a leaf from the book of mathematicians and
+leave DHCP as an exercise to the reader.
 
 Search online, find some content, and learn yourself.

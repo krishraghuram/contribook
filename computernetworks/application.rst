@@ -1,8 +1,6 @@
 Application Layer
 =================
 
-
-
 Client-Server Architecture
 --------------------------
 

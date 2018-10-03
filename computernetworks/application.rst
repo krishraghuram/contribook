@@ -379,7 +379,7 @@ rsync is an alternative to scp, and has some really cool options.
 .. note::
 	I often use rsync to backup files to external hard disk.
 	The command I usually run is,
-		``rsync -azP /home/raghuram /run/media/hard-disk/``
+	``rsync -azP /home/raghuram /run/media/hard-disk/``
 	Note that the command does not have any remote ip's.
 	In fact, it does not even use the network.
 	I use it over, rather than simple ``cp``, because of the its

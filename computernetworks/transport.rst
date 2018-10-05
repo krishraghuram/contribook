@@ -113,7 +113,7 @@ Why did we spend so much time on interfaces?
 It is counter intuitive that we discuss so much about "interfaces",
 which are, strictly speaking, not part of transport layer itself.
 
-But interfaces are important. Interfaces tell us what is expected from
+But they are important. Interfaces tell us what is expected from
 things that are above us, and what is provided by things that are below
 us. Thus, it tells us exactly what "gap" we are to fill.
 
@@ -127,50 +127,16 @@ Multiplexing and Demultiplexing
 We need to provide process-process communication from host-host
 communication.
 
-Multiplexing is a method of sharing a single line of communication.
-Here, there are multiple processes running on a single host, and they
-need to share the host's network layer service.
+On the sending end, the transport layer receives data from applications,
+which are to be sent across the network.
+The transport layer service adds header containing
+source and destination ports.
 
-This is done using port numbers.
+On the receiving end, the transport layer service receives data from
+network layer, looks at the destination port, and sends the packet to
+appropriate application.
 
-.. admonition:: Example
+.. note:: What is the use of sending the source port?
 
-    Last week, I was working on a project, using my Laptop and a
-    Raspberry Pi.
-    The pi was "headless", which meant that there was no
-    display, keyboard or mouse connected to it. 
-
-    I needed to connect to pi using SSH. I also needed to access a
-    website running on the pi. I do so as follows,
-
-    * I connect to the raspberry pi by opening a terminal and typing
-      ``ssh pi@192.168.1.100``
-    * I connect to the website by opening chrome and typing
-      ``http://192.168.1.100/`` in the url bar.
-
-    The two commands above contain a lot of info,
-
-    * http:// - Tells transport layer that (default) destination port is
-      TCP 80.
-    * ssh - Tells transport layer that (default) destination port is
-      TCP 22.
-    * 192.168.1.100 - Destination IP passed on to network layer
-      (for both commands)
-
-    The transport layer service (which is part of the OS), takes the
-    data that the application wants to send,
-
-    * adds a source and destination port
-    * optionally add other things, like checksums etc.
-
-    and sends it off to the network layer service.
-
-    The packets reach the other side, to the raspberry pi's network
-    layer service. Here,
-
-    * the additional things like checksums are used for
-      error-correction (if they exist).
-    * the destination port is used to understand which application this
-      is meant for
-
-    and the data is sent up to the application.
+    The source port serves as a "From" address.
+    Without it, the receiver won't be able to reply back.

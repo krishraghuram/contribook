@@ -7,91 +7,77 @@ Transport Layer
 Interface between Application Layer and Transport Layer
 -------------------------------------------------------
 
-The transport layer provides logical communication between applications
-(same as processes in this context).
+The transport layer provides logical communication between applications.
+It *abstracts away* the lower level details from the application.
 
-In other words, to the application processes 
-(both client and server side) it is as if they are 
-communicating to each other directly,
-as if they were running on the same system.
+In other words, to the application processes, it looks as if they are 
+communicating directly. While in reality, they might be on opposite
+sides of the world.
 
-Transport layer "abstracts away" the lower level details from the
+.. image:: ../_images/sender_receiver.svg
+   :width: 50%
+   :align: center
+
+On the sender, the application sends the data to the transport
+layer service, which processes the data, and sends it
+down to the network layer service.
+
+The network layer is responsible for sending the packets to the
+destination machine.
+
+On the receiving side, the network layer passes the packets to
+the transport layer service, which passes it to the appropriate
 application.
 
-**How is this done?**
+.. note::
 
-An application on one machine, wants to connect to another
-application on a different machine. Thus, the application requests
-transport layer service for aid. The transport layer service is usually
-part of the OS.
+    The above explanation considers just one instance of a "application
+    communicating with another application". In reality, networks are
+    much more complex.
 
-The transport layer service, needs to know which applications need to
-communicate, and what machines they are running on. In other words,
-it needs,
+    To give an idea, each host will have multiple applications using the
+    network, to send and receive data,
+    from various other hosts in the network.
 
-* Destination IP
-* Destination Port
-* Source Port
-* Source IP
+.. note::
 
-Usually, the transport layer service can safely assign a unused
-source port. It can also get source ip from the network layer service
-or operating system. Thus, the Destination IP and Port are the crucial
-details that the application must provide.
+    The transport layer service and network layer service are almost
+    always part of the Operating System.
 
-Recall sockets - The interface between application and transport
-layer - During creation of a socket, the application has to specify
-these details.
-
-.. admonition:: Example
-
-    As an example, consider a web-browser.
-    It is an application, and uses HTTP, HTTPS, DNS etc.
-    for allowing user to browse the internet.
-
-    When you want to access google or facebook,
-    the web-browser needs to specify the four details. 
-
-    The browser does not worry about the source IP and port -
-    the transport layer can get the ip from network layer,
-    and it can also assign an unused port.
-
-    But the browser needs to give the destination IP and
-    port. Who sets this???
-
-    We do. When we type in the url bar **http://www.google.com**,
-
-    * the browser takes default port 80
-      (Recall that http’s default port is 80).
-    * the browser makes a dns request to find the IP of www.google.com
-      (Recall that DNS is used for name -> IP translation)
-
-    The browser creates a socket using the above details,
-    and is able to get the website.
+    Thus, for a host, there is only one transport layer service and one
+    network layer service.
 
 ########################################################################
 
 Interface between Transport Layer and Network Layer
 ---------------------------------------------------
 
-How does Transport Layer interact with Network Layer? 
-
 Transport Layer provides **logical communication between processes**.
 Network Layer provides **logical communication between hosts**.
 
-For this, Transport Layer must provide the Network Layer with 
-Source IP and Destination IP. Recall that the Application Layer
-passed these details to the Transport Layer.
-Transport Layer just needs to pass them down onto the Network Layer. 
+The distinction is subtle, but it is important.
+Read more from Kurose and Ross Section 3.1.1
 
-Read more from Kurose and Ross Section 3.1.1 
+.. image:: ../_images/transport_network.svg
+   :width: 75%
+   :align: center
 
-The Network Layer protocol that is used by both TCP and UDP, is IP -
-Internet Protocol. IP’s service model is called best-effort delivery.
-This means that IP makes best-effort to deliver packets properly,
-but it makes no guarantees.
+.. note::
 
-As we will see, TCP and UDP have the tasks of, 
+    The image is only for understanding, and does not represent
+    any physical connection, such as copper/optical cable or wireless
+    signals.
+    
+    The *physical* connection between the hosts might be very different
+    from the *logical* connection that the network layer or transport
+    layer sees.
+
+########################################################################
+
+Recap
+-----
+
+Transport Layer Protocols have the task(s) of,
 
 * Providing a process-process communication
   using a host-host communication.
@@ -102,30 +88,30 @@ As we will see, TCP and UDP have the tasks of,
     * In-Order Arrival
     * Flow and Congestion Control
 
-We will see how transport layer solves 
-these problems in the next sections.
-
 ########################################################################
 
-Why did we spend so much time on interfaces?
---------------------------------------------
-
-It is counter intuitive that we discuss so much about "interfaces",
-which are, strictly speaking, not part of transport layer itself.
-
-But they are important. Interfaces tell us what is expected from
-things that are above us, and what is provided by things that are below
-us. Thus, it tells us exactly what "gap" we are to fill.
-
-What it doesn't tell us, is how we fill that gap. That comes below.
-
-########################################################################
+.. todo::
+    Continue from here.
 
 Multiplexing and Demultiplexing
 -------------------------------
 
 We need to provide process-process communication from host-host
-communication.
+communication. Let's see what is interesting about this problem.
+
+The transport layer service on the receiver gets packet from
+the network layer below. How does it know what application is the
+intended receiver of the packet?
+
+Thus, it needs some extra information, which allows it to
+decode/decipher the intended receiving application.
+
+The transport layer service on the sender has to provide this extra
+information.
+
+**Ports and Port numbers**
+
+
 
 On the sending end, the transport layer receives data from applications,
 which are to be sent across the network.
@@ -136,7 +122,10 @@ On the receiving end, the transport layer service receives data from
 network layer, looks at the destination port, and sends the packet to
 appropriate application.
 
+Thus, the port numbers are used for Multiplexing and Demultiplexing.
+
 .. note:: What is the use of sending the source port?
 
     The source port serves as a "From" address.
     Without it, the receiver won't be able to reply back.
+

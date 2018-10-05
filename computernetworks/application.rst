@@ -152,7 +152,7 @@ Side Joke
 ^^^^^^^^^
 
 .. image:: ../_images/httpresponsecodejoke.jpg
-   :scale: 65 %
+   :width: 50 %
    :align: center
 
 Extras
@@ -495,7 +495,7 @@ Key Points
 	  as defined in the SI unit of second. Isn't that cool?
 
 .. figure:: ../_images/ntp.jpg
-   :scale: 40 %
+   :width: 50 %
    :align: center
    
    A Stratum 0 NTP server of US Naval Observatory, located in Colorado.

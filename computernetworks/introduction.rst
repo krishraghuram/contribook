@@ -94,7 +94,7 @@ cognitive capabilities that we do.
 Seen this programmer joke?
 
 .. image:: ../_images/milkeggs.jpg
-   :scale: 65 %
+   :width: 50 %
    :align: center
 
 Some Example Protocols

@@ -99,127 +99,65 @@ Transport Layer Protocols have the task(s) of,
 Multiplexing and Demultiplexing
 -------------------------------
 
-We need to provide process-process communication from host-host
-communication.
+Providing process-process communication using host-host
+communication is also called Transport Layer Multiplexing and
+Demultiplexing.
 
-There might be multiple applications running on a host machine. When
-the transport layer receives data from network layer below, it needs to
-which application to send it to.
+Let us consider an artificial example to understand this.
 
-Recall Sockets and Ports from Application Layer. Ports are used by
-transport layer to uniquely identify applications and Sockets are used
-to transfer data to/from application.
+.. image:: ../_images/mux_demux.svg
+   :width: 75%
+   :align: center
 
-Example
-^^^^^^^
+Applications on Host A want to send data to some other applications running on
+some other hosts in the network. They pass the destination ip address
+and ports to the transport layer, along with the data.
 
-**On my laptop I,**
+The transport layer assigns a random unused source port. It stores both
+source and destination port in the header of the packet, and sends the
+packets down to network layer (along with destination ip).
 
-* SSH into my VM on digitalocean by opening a terminal and running
-  the ssh command : `ssh user@139.59.100.100`
-* Open chrome, and goto google : `https://www.google.com`
+The network layer does its job, and sends packets over the network.
+The packets finally reach the network layers of respective
+destination hosts.
 
-The applications, do the following.
+On Host B, the packets reach transport layer. For each packet,
+the transport layer has to identify the intended application,
+and forward the packet to that application. It does so by looking
+at the destination port specified in the header of the packet.
 
-* The ssh command knows that default port of ssh protocol is 22. Since I
-  didn't explicitly specify a different port, 22 will be used.
-* Chrome knows that default port of https protocol is 443.  Since I
-  didn't explicitly specify a different port, 443 will be used.
-* Usually, client applications do not specify source port. Rather, the
-  transport layer assigns a random, unused source port by itself.
+Exactly the same process happens in Host C.
 
-The transport layer service running as part of the linux kernel does
-the following,
+The careful reader would remember that we also stored the "source port"
+in the header. This serves as a "from" address. The receiver
+can use this to reply back to the sender.
 
-* Adds a header to all packets containing source and destination
-  ports.
-* Optionally, depending on the transport layer protocol, it might do
-  some other things like error correction etc.
-* Passes on the packet to the network layer.
+.. note::
+    
+    We mentioned "applications pass data to transport layer" and
+    "transport layer forwards packets to application".
 
-The network layer sends the packets meant for google to google's
-webserver, and the packets meant for ssh to digitalocean's VM.
+    In the strictest sense, that is not true. Data does not flow
+    directly between the two, rather, it flows through "sockets".
 
-**On google's webserver**
+    In case of a client application, the app creates a socket,
+    and, using the socket, connects to a destination ip and port.
+    Then, the application uses the socket to transfer data to the
+    transport layer below.
+    When the communcication is over, the application closes the socket
+    connection.
 
-The network layer receives the packets and sends them to the transport
-layer.
-
-The transport layer sees that the destination port is 443, so it sends
-the packet to the application listening on that port. Usually, this is
-a webserver like nginx, but you can't say that about google. They
-customize everything.
-
-The webserver serves the index.html page.
-
-How does it know where to send?
-
-The source ip and source port from our original request are used for
-this purpose.
-
-**On digitalocean's VM**
-
-The network layer receiving the packets, and sends them to the transport
-layer.
-
-The transport layer sees that the destination port is 22, so it sends
-the packet to the openssh server running on port 22.
-
-The SSH sends back a reply, asking us to authenticate with the password.
-
-How does it know where to send?
-
-The source ip and source port from our original request are used for
-this purpose.
-
-Connectionless Mux-Demux
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-In UDP, there is no connection between source and destination.
-
-The UDP packet is completely identified by the destination ip and port.
-
-Thus, packets from different source ips and ports will be sent up the
-same socket by the transport layer of the receiving host.
-
-It is the application's responsibility to distinguish different sources,
-and send appropriate replies.
+    Server applications, on the other hand, work slightly differently.
+    They bind to a socket,
+    and listen on a particular source ip and port.
+    When a client wants to connect, the server accepts the connection.
+    Then, the transport layer can forward the received data to
+    the application via the socket.
 
 
+.. todo::
 
-
-
-
-
-
-
-
-
-
-The sending machine's transport layer would have added a
-**destination port** to the header of the packet.
-The receiving machine's transport layer forwards the
-packet to the application running on that port.
-
-What if the receiving machine's application wants to send a reply?
-
-Exactly for this need, the sending machine's transport layer also adds
-a source port to the header.
-
-
-On the sending end, the transport layer receives data from applications,
-which are to be sent across the network.
-The transport layer service adds header containing
-source and destination ports.
-
-On the receiving end, the transport layer service receives data from
-network layer, looks at the destination port, and sends the packet to
-appropriate application.
-
-Thus, the port numbers are used for Multiplexing and Demultiplexing.
-
-.. note:: What is the use of sending the source port?
-
-    The source port serves as a "From" address.
-    Without it, the receiver won't be able to reply back.
-
+    * UDP
+    * Principles of reliable data transfer(extra material)
+    * TCP
+    * Services offered by TCP

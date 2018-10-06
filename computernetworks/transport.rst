@@ -29,6 +29,12 @@ On the receiving side, the network layer passes the packets to
 the transport layer service, which passes it to the appropriate
 application.
 
+The two most popular transport layer protocols on the internet stack
+are,
+
+1. TCP (Transmission Control Protocol)
+2. UDP (User Datagram Protocol)
+
 .. note::
 
     The above explanation considers just one instance of a "application
@@ -36,8 +42,8 @@ application.
     much more complex.
 
     To give an idea, each host will have multiple applications using the
-    network, to send and receive data,
-    from various other hosts in the network.
+    network, sending and receiving data
+    from various other places in the network.
 
 .. note::
 
@@ -65,7 +71,7 @@ Read more from Kurose and Ross Section 3.1.1
 .. note::
 
     The image is only for understanding, and does not represent
-    any physical connection, such as copper/optical cable or wireless
+    any physical connection, such as copper cables or wireless
     signals.
     
     The *physical* connection between the hosts might be very different
@@ -90,27 +96,115 @@ Transport Layer Protocols have the task(s) of,
 
 ########################################################################
 
-.. todo::
-    Continue from here.
-
 Multiplexing and Demultiplexing
 -------------------------------
 
 We need to provide process-process communication from host-host
-communication. Let's see what is interesting about this problem.
+communication.
 
-The transport layer service on the receiver gets packet from
-the network layer below. How does it know what application is the
-intended receiver of the packet?
+There might be multiple applications running on a host machine. When
+the transport layer receives data from network layer below, it needs to
+which application to send it to.
 
-Thus, it needs some extra information, which allows it to
-decode/decipher the intended receiving application.
+Recall Sockets and Ports from Application Layer. Ports are used by
+transport layer to uniquely identify applications and Sockets are used
+to transfer data to/from application.
 
-The transport layer service on the sender has to provide this extra
-information.
+Example
+^^^^^^^
 
-**Ports and Port numbers**
+**On my laptop I,**
 
+* SSH into my VM on digitalocean by opening a terminal and running
+  the ssh command : `ssh user@139.59.100.100`
+* Open chrome, and goto google : `https://www.google.com`
+
+The applications, do the following.
+
+* The ssh command knows that default port of ssh protocol is 22. Since I
+  didn't explicitly specify a different port, 22 will be used.
+* Chrome knows that default port of https protocol is 443.  Since I
+  didn't explicitly specify a different port, 443 will be used.
+* Usually, client applications do not specify source port. Rather, the
+  transport layer assigns a random, unused source port by itself.
+
+The transport layer service running as part of the linux kernel does
+the following,
+
+* Adds a header to all packets containing source and destination
+  ports.
+* Optionally, depending on the transport layer protocol, it might do
+  some other things like error correction etc.
+* Passes on the packet to the network layer.
+
+The network layer sends the packets meant for google to google's
+webserver, and the packets meant for ssh to digitalocean's VM.
+
+**On google's webserver**
+
+The network layer receives the packets and sends them to the transport
+layer.
+
+The transport layer sees that the destination port is 443, so it sends
+the packet to the application listening on that port. Usually, this is
+a webserver like nginx, but you can't say that about google. They
+customize everything.
+
+The webserver serves the index.html page.
+
+How does it know where to send?
+
+The source ip and source port from our original request are used for
+this purpose.
+
+**On digitalocean's VM**
+
+The network layer receiving the packets, and sends them to the transport
+layer.
+
+The transport layer sees that the destination port is 22, so it sends
+the packet to the openssh server running on port 22.
+
+The SSH sends back a reply, asking us to authenticate with the password.
+
+How does it know where to send?
+
+The source ip and source port from our original request are used for
+this purpose.
+
+Connectionless Mux-Demux
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+In UDP, there is no connection between source and destination.
+
+The UDP packet is completely identified by the destination ip and port.
+
+Thus, packets from different source ips and ports will be sent up the
+same socket by the transport layer of the receiving host.
+
+It is the application's responsibility to distinguish different sources,
+and send appropriate replies.
+
+
+
+
+
+
+
+
+
+
+
+
+The sending machine's transport layer would have added a
+**destination port** to the header of the packet.
+The receiving machine's transport layer forwards the
+packet to the application running on that port.
+
+What if the receiving machine's application wants to send a reply?
+
+Exactly for this need, the sending machine's transport layer also adds
+a source port to the header.
 
 
 On the sending end, the transport layer receives data from applications,

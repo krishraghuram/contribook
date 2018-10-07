@@ -154,10 +154,51 @@ can use this to reply back to the sender.
     Then, the transport layer can forward the received data to
     the application via the socket.
 
+########################################################################
+
+UDP
+---
+
+UDP is a no-frills protocol. It does the bare minimum that a transport
+layer protocol is expected to do.
+
+* Connectionless
+* Minimal error checking using a Checksum
+
+In UDP, the application creates a socket, and sends data, or waits for
+data to be received.
+This is very different from how TCP does things(see below), thus, UDP is
+said to be connectionless.
+
+The error checking in UDP is also simple and minimalistic. You can read
+more in `wikipedia page of UDP`_.
+
+Why do we even have UDP?
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The major reasons are listed here.
+There are also other reasons, which are specific to use cases.
+Those are left to reader for self-exploration.
+
+1. Finer Application Level control on what, when and how data is sent. 
+   One example is VoIP and online gaming.
+   In these applications, it is more important to keep the stream of
+   data going *realtime* rather than making sure a particular packet
+   reaches(by re-sending it).
+   However, TCP is all about reliability and does not provide any
+   guarantees on data rate.
+
+2. No three-way handshake. In UDP, there is no *overhead* of the 
+   "connection establishment". Thus, it is used in situations where
+   connection setup is too costly, like DNS.
+
+.. _`wikipedia page of UDP`:
+    https://en.wikipedia.org/wiki/User_Datagram_Protocol
+
+########################################################################
 
 .. todo::
 
-    * UDP
     * Principles of reliable data transfer(extra material)
     * TCP
     * Services offered by TCP

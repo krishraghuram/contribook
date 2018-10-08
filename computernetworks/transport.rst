@@ -164,6 +164,8 @@ layer protocol is expected to do.
 
 * Connectionless
 * Minimal error checking using a Checksum
+* UDP, by itself, is `simplex`_. However, an application can implement a
+  `full-duplex`_ service on top of UDP.
 
 In UDP, the application creates a socket, and sends data, or waits for
 data to be received.
@@ -197,8 +199,46 @@ Those are left to reader for self-exploration.
 
 ########################################################################
 
+TCP
+---
+
+* TCP is connection oriented.
+
+  A TCP Connection is uniquely specified by a pair of sockets 
+  identifying its two sides.
+  In other words, A TCP connection is uniquely identified by
+  the quadruple (Source IP, Source Port, Dest IP, Dest Port).
+
+* TCP is a `full-duplex`_ service.
+
+* TCP connection is Point-to-Point.
+
+* TCP connection is established using a three-way handshake.
+
+    - Client sends a SYN packet.
+    - Server replies with a SYN-ACK packet.
+    - Client replies with a final ACK packet. This packet can also
+      contain additional application data.
+
+* Services provided by TCP
+
+    - Reliable data transfer : Data that is sent will arrive.    
+    - In order arrival : Data will arrive in same order as sent.
+    - Error free : Error Detection and Correction
+      ensures no bits are flipped.
+    - Flow control : Ensures that Sender cannot send data faster than
+      Receiver can receive.
+    - Congestion Control : If network is busy, wait for *sometime*
+      before trying to access network again.
+      Makes sure network resources are available to everyone.
+
+.. _`simplex`:
+    https://en.wikipedia.org/wiki/Simplex_communication
+
+.. _`full-duplex`:
+    https://en.wikipedia.org/wiki/Duplex_(telecommunications)#Full_duplex
+
 .. todo::
 
+    * Cleanup TCP
     * Principles of reliable data transfer(extra material)
-    * TCP
-    * Services offered by TCP

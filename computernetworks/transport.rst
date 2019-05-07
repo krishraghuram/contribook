@@ -43,7 +43,7 @@ are,
 
     To give an idea, each host will have multiple applications using the
     network, sending and receiving data
-    from various other places in the network.
+    from various other applications running on various machines in the network.
 
 .. note::
 
@@ -87,7 +87,7 @@ Transport Layer Protocols have the task(s) of,
 
 * Providing a process-process communication
   using a host-host communication.
-* Additionally, choose to provide services such as,
+* Additionally, choose to provide some other services, such as,
 
     * Error Detection and Correction
     * Reliable Data Transfer
@@ -162,6 +162,7 @@ UDP
 UDP is a no-frills protocol. It does the bare minimum that a transport
 layer protocol is expected to do.
 
+* Multiplexing multiple processes via single network connection
 * Connectionless
 * Minimal error checking using a Checksum
 * UDP, by itself, is `simplex`_. However, an application can implement a
@@ -186,7 +187,7 @@ Those are left to reader for self-exploration.
    One example is VoIP and online gaming.
    In these applications, it is more important to keep the stream of
    data going *realtime* rather than making sure a particular packet
-   reaches(by re-sending it).
+   reaches (by re-sending it).
    However, TCP is all about reliability and does not provide any
    guarantees on data rate.
 
@@ -204,10 +205,10 @@ TCP
 
 * TCP is connection oriented.
 
-  A TCP Connection is uniquely specified by a pair of sockets 
-  identifying its two sides.
-  In other words, A TCP connection is uniquely identified by
-  the quadruple (Source IP, Source Port, Dest IP, Dest Port).
+    A TCP Connection is uniquely specified by a pair of sockets 
+    identifying its two sides.
+    In other words, A TCP connection is uniquely identified by
+    the quadruple (Source IP, Source Port, Dest IP, Dest Port).
 
 * TCP is a `full-duplex`_ service.
 
@@ -238,7 +239,17 @@ TCP
 .. _`full-duplex`:
     https://en.wikipedia.org/wiki/Duplex_(telecommunications)#Full_duplex
 
-.. todo::
+########################################################################
 
+Principles of Reliable Data Transfer
+------------------------------------
+
+Although this topic is interesting, it is theoretical in nature, and will not
+be of use to everyone.
+
+* Kurose and Ross Book Section 3.4
+* http://www2.ic.uff.br/~michael/kr1999/3-transport/3_040-principles_rdt.htm
+* http://www.cs.ccsu.edu/~stan/classes/cs490/slides/networks4-ch3-3.pdf
+
+.. todo::
     * Cleanup TCP
-    * Principles of reliable data transfer(extra material)

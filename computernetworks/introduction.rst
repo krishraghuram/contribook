@@ -120,15 +120,13 @@ Links to Read
 
 .. note::
 	Above video jumbles up network layer and link layer a little bit
-	 - just ignore that.
+	- just ignore that.
 
 * Super Basic (and funny) Video - 
   `thenewboston - what is a protocol?`_
 
 .. note::
-	If you are feeling like binge-watching something, binge-watch this.
-	
-	At least you'll learn something.
+	If you feel like binging something,
 	
 	`thenewboston - Computer Networking Playlist`_
 

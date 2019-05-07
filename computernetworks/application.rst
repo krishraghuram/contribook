@@ -15,7 +15,7 @@ Links
 	- so please ignore that.
 
 Thought client-server model is the most widely used, it is not the only
- one. There are other models too. Specifically,
+one. There are other models too. Specifically,
 
 .. todo::
 	Expand Peer-to-Peer and Publisher-Subscriber models.
@@ -129,7 +129,7 @@ Key Points
 * Works using Client - Server model, and thus,
   through Request - Response cycles
 * Based on TCP/IP
-* Default server port - TCP Port 80 (Don’t have to memorise)
+* Default server port - TCP Port 80
 * Stateless - Server forgets about client after the response.
 * Request Methods and Response/Status Codes
 
@@ -320,10 +320,6 @@ Link
 .. _`Robert Heaton - How does HTTPS actually work?`:
 	http://robertheaton.com/2014/03/27/how-does-https-actually-work/
 
-Above link is not a short and sweet video like others. That’s because
-videos do not contain detailed information. At least, not the ones
-under 10 minutes. So, it’s usually better to read up content from
-books, webpages, blogs, wikipedia pages, man pages of commands etc.
 
 ########################################################################
 
@@ -351,7 +347,7 @@ To work with SSH practically, you need a SSH server and a SSH client.
 Most Linux distros come with ssh command line client.
 You can test this on terminal by typing "which ssh".
 For windows, you have Putty - but I do not recommend this,
-as working with SSH keys is a pain on Putty.
+as working with SSH keys is painful on that.
 
 For the server, goto some popular cloud provider, 
 be it Digitalocean, GCP, AWS or Azure, and get a Virtual Machine.
@@ -379,7 +375,7 @@ rsync is an alternative to scp, and has some really cool options.
 .. note::
 	I often use rsync to backup files to external hard disk.
 	The command I usually run is,
-	``rsync -azP /home/raghuram /run/media/hard-disk/``
+	``rsync -azP /home/john_doe /run/media/hard-disk/``
 	Note that the command does not have any remote ip's.
 	In fact, it does not even use the network.
 	I use it over, rather than simple ``cp``, because of the its

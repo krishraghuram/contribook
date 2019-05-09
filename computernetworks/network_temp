@@ -1,0 +1,22 @@
+Because... well... we really only care about internet and
+    internet-like networks.
+
+
+
+NAT
+IP
+	v4
+	v6
+ICMP
+ARP(2-3 link)
+
+
+
+* IP (v4 and v6)
+	Original IP address allocation (8 bits for network and 24 bits for host)
+	Classful Networking
+	CIDR
+	Subnetting
+* ICMP
+* ARP
+* NAT
